@@ -1,34 +1,187 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset = 'UTF-8'>
-<title>Log in to your PayPal account</title>
-<!-- <link rel = 'icon' href = 'images/paypal.ico' type = 'image/x-icon'> -->
-<!-- <link rel = 'stylesheet' href = 'css/normalize.css'> -->
-<link rel = 'stylesheet' href = 'style.css'>
+  <title>Login Page</title>
+  <style>
+    body {
+      background-color: #fff;
+    }
+    .login-box {
+      background-color: #fff;
+      width: 530px;
+      margin: 0 auto;
+      margin-top: 180px;
+      padding: 40px;
+      /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+      border: 0.01px solid #d7d1d19c;
+      border-radius: 10px;
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      height: 64px;
+      padding: 0 10px;
+      background: #fff;
+      text-overflow: ellipsis;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 4px;
+      border-color: #000;
+      border: 0.01px solid #d7d1d19c;
+      border-radius: 10px;
+      color: #000;
+      font-family: pp-sans-big-regular,Helvetica Neue,Arial,sans-serif;
+      font-variant: normal;
+      font-weight: 400;
+      direction: ltr;
+    }
+
+    /* Move the placeholder up when the input is not empty */
+    .login-box input[type="text"]:not(:placeholder-shown) + label,
+    .login-box input[type="password"]:not(:placeholder-shown) + label {
+        transform: translateY(-20px);
+        font-size: 14px;
+        color: #777;
+    }
+
+    /* Style for the placeholder label */
+    .login-box input[type="text"] + label 
+    .login-box input[type="password"] + label{
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        color: #999;
+        font-size: 16px;
+        pointer-events: none;
+        transition: transform 0.2s ease-out, font-size 0.2s ease-out, color 0.2s ease-out;
+    }
+
+    /* Adjust the position of the input when the placeholder is moved up */
+    .login-box input[type="text"]:not(:placeholder-shown) 
+    .login-box input[type="text"]:not(:placeholder-shown){
+    padding-top: 25px;
+    }
+
+    .login-box input[type="submit"] {
+      background-color: #142c8e;
+      color: #fff;
+      border: none;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      box-shadow: none;
+      box-sizing: border-box;
+      appearance: none;
+      border-radius: 3px;
+      padding: 12px 32px;
+      width: 100%;
+      display: block;
+      min-height: 44px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      text-shadow: none;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: color .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .login-box a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .login-box a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+  }
+  
+  .social-icons img {
+    width: 30px;
+    margin: 0 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    }
+    .try-another-way {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .try-another-way a {
+      color: #007bff;
+      text-decoration: none;
+      /* border-bottom: 1px solid #007bff; */
+    }
+    .try-another-way a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .loginSignUpSeparator {
+        border-top: 1px solid #cbd2d6;
+        position: relative;
+        margin-top: 8.72%;
+        margin-bottom: 4.895%;
+        height: 15px;
+        text-align: center;
+        font-size: 83.34%;
+    }
+    .loginSignUpSeparator .texInSeparator{
+        background-color: #fff;
+        padding: 0 0.5em;
+        position: relative;
+        color: #6c7378;
+        top: -0.7em;
+        font-size: 15px;
+    }
+    .signup-button {
+      background-color: transparent;
+      border: 2px solid #142c8e;
+      color: #142c8e;
+      margin-top: 20px;
+      border-radius: 30px;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      
+    }
+    .signup-button:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-
-
-<form action = '' method = 'POST'>
-
-<input type = 'email' name = 'email' placeholder = 'Email address'><br>
-<input type = 'password' name = 'pass' placeholder = 'Enter your password'><br>
-
-<input class = 'log' type = 'submit' value = 'Log In'>
-
-<a href = '#'>Having trouble logging in?</a><br><br><br><br><br><br>
-
-<div class = 'before'></div>
-<p>or</p>
-<div class = 'after'></div>
-
-<input class = 'sign' type = 'submit' value = 'Sign Up'>
-
-</form>
-
-
+  <div class="login-box">
+    <div class="social-icons">
+        <img src="paypal.png"/>
+    </div>
+    <form>
+      <!-- <label>Email:</label> -->
+      <input id="email" type="text" name="email" required="required" value autocomplete="user
+      " placeholder="Email or mobile number">
+      <!-- <label>Password:</label> -->
+      <input id="password" type="password" name="password" required="required" value placeholder="password" aria-describedby="passwordErrorMessage">
+      <a href="#">Forgot password?</a>
+      <input type="submit" value="Login">
+    </form>
+    <div class="try-another-way">
+      <a href="#">Try another way</a>
+    </div>
+    <div class="loginSignUpSeparator ">
+        <span class="texInSeparator">or</span>
+    </div>
+    <div class="signup-box">
+      <input type="button" class="signup-button" value="Sign up">
+    </div>
+  </div>
 </body>
 </html>
+
+
 
 
